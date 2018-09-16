@@ -1,0 +1,35 @@
+                     =========  ==      ======= ==   ==
+                         ==             ==       == ==
+                         ==     ==  --  =======   ===
+                         ==     ==      ==       == ==
+                         ==     ==      ==      ==   ==
+  
+                            --- Introduction ---
+==================================================================================
+
+    TiFX is a toolkit for creating graphical user interfaces on TI calculators.
+
+               It offers a wide-ranged set of customizable widgets
+                  to make your application look and feel unique.
+
+                              --- Features ---
+==================================================================================
+
+                 - Low-footprint (only 1200 bytes!)
+                 - Compatible with the CE C Programming toolchain
+                 - Made with performance as main goal
+
+
+                            --- Instructions ---
+==================================================================================
+
+  You'll need to copy the public header (include/tifx.h) and the source (tifx/**)
+        into your own project. Then simply include the public header:
+
+                         #include "include/tifx.h"
+
+                              --- License ---
+==================================================================================
+
+                    TiFX is licensed under the MIT License.
+               Please see the LICENSE file for more information.

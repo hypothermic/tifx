@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "*.ui": "xml",
+        "stddef.h": "c",
+        "stdbool.h": "c",
+        "tifx.h": "c",
+        "stdint.h": "c",
+        "engine.h": "c",
+        "array": "cpp",
+        "hash_map": "cpp",
+        "initializer_list": "cpp",
+        "managers.h": "c",
+        "activity.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "math.h": "c",
+        "tice.h": "c",
+        "array.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
