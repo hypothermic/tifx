@@ -19,7 +19,9 @@
 #include "../tifx/util/array.h"
 
 #include <tice.h>
+#include <graphx.h>
 
 #include "../tifx/activity.h"
+#include "../tifx/engine.h"
 
 #endif // TIFX_H_
