@@ -1,2 +1,8 @@
 # IntelliSense support for TI Toolchain
 !.vscode/c_cpp_properties.json
+
+# Build output
+.8xp
+.bin
+.map
+main.src
