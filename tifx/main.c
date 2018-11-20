@@ -15,7 +15,7 @@
 
 void main()
 {
-    FxActivity* act;
+    activity_t* act;
 
     os_ClrHome();
 
@@ -25,6 +25,8 @@ void main()
     while (!os_GetCSC());
 
     act = tifx_activity_new();
+
+    tifx_activity_run(act);
 
     tifx_activity_free(act);
 }

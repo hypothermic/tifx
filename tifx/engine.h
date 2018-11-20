@@ -14,7 +14,7 @@
 /*! Present the activity on the screen.
  *  
  */
-void tifx_activity_run(FxActivity *act)
+void tifx_activity_run(activity_t *act)
 {
     sk_key_t keybuf;
     

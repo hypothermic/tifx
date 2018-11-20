@@ -11,22 +11,22 @@
 #ifndef ACTIVITY_H_
 #define ACTIVITY_H_
 
-typedef struct FxActivity
+typedef struct _activity_t
 {
     int id;
     Array* elements;
-} FxActivity;
+} activity_t;
 
-FxActivity *tifx_activity_new()
+activity_t *tifx_activity_new()
 {
-    FxActivity *act = (FxActivity*)malloc(sizeof(FxActivity));
+    activity_t *act = (activity_t*)malloc(sizeof(activity_t));
     array_init(act->elements, 0);
     return act;
 }
 
-void tifx_activity_free(FxActivity *win)
+void tifx_activity_free(activity_t *act)
 {
-    free(win);
+    free(act);
 }
 
 #endif // ACTIVITY_H_
