@@ -8,24 +8,16 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef TIFX_H_
-#define TIFX_H_
+#ifndef TOAST_H_
+#define TOAST_H_
 
-#include <debug.h>
+int __tifx_toast_len; // remaining sec
+char* __tifx_toast_contents; // text
 
-#include <stdio.h>
-#include <stddef.h>
-#include <stdint.h>
-#include <stdlib.h>
+void tifx_toast_show(const char* text)
+{
+    __tifx_toast_len = 100;
+    __tifx_toast_contents = text;
+}
 
-#include "../tifx/util/array.h"
-
-#include <tice.h>
-#include <graphx.h>
-
-#include "../tifx/activity.h"
-#include "../tifx/element.h"
-#include "../tifx/engine.h"
-#include "../tifx/toast.h"
-
-#endif // TIFX_H_
+#endif // TOAST_H_

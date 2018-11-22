@@ -15,7 +15,8 @@
         "stdio.h": "c",
         "math.h": "c",
         "tice.h": "c",
-        "array.h": "c"
+        "array.h": "c",
+        "element.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
