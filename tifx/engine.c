@@ -52,12 +52,17 @@ void tifx_activity_run(activity_t *act)
         gfx_SwapDraw();
 
         // repeat once key is pressed, praise event-driven libraries!
-        while (!os_GetCSC());
+        while (!os_GetCSC() && act->state);
     }
 
     dbg_sprintf(dbgerr, "ACT EXIT %d\n", act->id);
 
     gfx_End();
+}
+
+void tifx_activity_kill(activity_t *act)
+{
+    act->state = false;
 }
 
 void tifx_activity_register_callback_keypress(tifx_callback_key_press cb)

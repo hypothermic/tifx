@@ -59,6 +59,7 @@ void tifx_element_free(element_t *elm);
 
 typedef void (*tifx_callback_key_press) (activity_t*);
 void tifx_activity_run(activity_t *act);
+void tifx_activity_kill(activity_t *act);
 void tifx_activity_register_callback_keypress(tifx_callback_key_press cb);
 
 // render.c
