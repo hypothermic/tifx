@@ -11,7 +11,7 @@
   This class is a placeholder/example for your own application
  \*----------------------------------------------------------*/
 
-#include "tifx.h"
+#include "../tifx/tifx.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
