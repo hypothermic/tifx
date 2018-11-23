@@ -8,25 +8,33 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef ACTIVITY_H_
-#define ACTIVITY_H_
+#include "../tifx.h"
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <debug.h>
 
-typedef struct _activity_t
+void array_init(Array *a, size_t initialSize)
 {
-    int id;
-    Array* elements;
-} activity_t;
-
-activity_t *tifx_activity_new()
-{
-    activity_t *act = (activity_t*)malloc(sizeof(activity_t));
-    array_init(act->elements, 0);
-    return act;
+    a->array = (int *)malloc(initialSize * sizeof(int));
+    a->used = 0;
+    a->size = initialSize;
 }
 
-void tifx_activity_free(activity_t *act)
+void array_append(Array *a, int element)
 {
-    free(act);
+    if (a->used == a->size)
+    {
+        a->size *= 2;
+        a->array = (int *)realloc(a->array, a->size * sizeof(int));
+    }
+    a->array[a->used++] = element;
 }
 
-#endif // ACTIVITY_H_
+void array_free(Array *a)
+{
+    free(a->array);
+    a->array = NULL;
+    a->used = a->size = 0;
+}
+

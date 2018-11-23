@@ -8,11 +8,10 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef TOAST_H_
-#define TOAST_H_
+#include "tifx.h"
 
-int __tifx_toast_len; // remaining sec
-char* __tifx_toast_contents; // text
+static int __tifx_toast_len; // remaining sec
+static char* __tifx_toast_contents; // text
 
 void tifx_toast_show(const char* text)
 {
@@ -20,4 +19,3 @@ void tifx_toast_show(const char* text)
     __tifx_toast_contents = text;
 }
 
-#endif // TOAST_H_

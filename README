@@ -23,10 +23,11 @@
                             --- Instructions ---
 ==================================================================================
 
-  You'll need to copy the public header (include/tifx.h) and the source (tifx/**)
-        into your own project. Then simply include the public header:
+     Copy the "tifx" directory into the "src" directory for your project. Then
+          simply include the public header below. An example "main.c"
+                     file is provided for reference.
 
-                         #include "include/tifx.h"
+                          #include "tifx/tifx.h"
 
                               --- License ---
 ==================================================================================

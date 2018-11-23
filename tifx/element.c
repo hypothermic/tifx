@@ -8,24 +8,19 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef TIFX_H_
-#define TIFX_H_
-
-#include <debug.h>
-
-#include <stdio.h>
-#include <stddef.h>
+#include "tifx.h"
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
+#include <debug.h>
 
-#include "../tifx/util/array.h"
+element_t *_tifx_element_new(void)
+{
+    return (element_t*)malloc(sizeof(element_t));
+}
 
-#include <tice.h>
-#include <graphx.h>
+void tifx_element_free(element_t *elm)
+{
+    free(elm);
+}
 
-#include "../tifx/activity.h"
-#include "../tifx/element.h"
-#include "../tifx/engine.h"
-#include "../tifx/toast.h"
-
-#endif // TIFX_H_

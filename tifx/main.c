@@ -11,9 +11,15 @@
   This class is a placeholder/example for your own application
  \*----------------------------------------------------------*/
 
-#include "../include/tifx.h"
+#include "tifx.h"
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <graphx.h>
+#include <tice.h>
+#include <debug.h>
 
-void main()
+void main(void)
 {
     activity_t* act;
 

@@ -8,12 +8,10 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef ENGINE_H_
-#define ENGINE_H_
-
-#include <keypadc.h>
-
-typedef void (*tifx_callback_key_press) (kb_key_t);
+#include "tifx.h"
+#include <debug.h>
+#include <graphx.h>
+#include <tice.h>
 
 static void _tifx_callback_key_press_noop(kb_key_t key);
 
@@ -24,13 +22,13 @@ static tifx_callback_key_press _cb_key = _tifx_callback_key_press_noop;
  */
 void tifx_activity_run(activity_t *act)
 {
-    bool key, prevkey;
+    bool key, prevkey = false;
     
     dbg_sprintf(dbgout, "ACT RUN 1\n");
     
     gfx_Begin();
     gfx_SetColor(gfx_blue);
-        gfx_FillRectangle(1, 1, 2, 2);
+    gfx_FillRectangle(1, 1, 2, 2);
     gfx_FillScreen(gfx_white);
     dbg_sprintf(dbgout, "ACT RUN 2\n");
 
@@ -90,4 +88,3 @@ static void _tifx_callback_key_press_noop(kb_key_t key)
     
 }
 
-#endif // ENGINE_H_
