@@ -25,7 +25,8 @@ void array_append(Array *a, int element)
 {
     if (a->used == a->size)
     {
-        a->size *= 2;
+        //a->size *= 2;
+        a->size++;
         a->array = (int *)realloc(a->array, a->size * sizeof(int));
     }
     a->array[a->used++] = element;
