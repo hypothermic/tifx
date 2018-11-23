@@ -8,22 +8,22 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef ELEMENT_H_
-#define ELEMENT_H_
+#include "tifx.h"
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <debug.h>
 
-typedef struct _element_t
+activity_t *tifx_activity_new(void)
 {
-    int eid;
-} element_t;
-
-element_t *_tifx_element_new()
-{
-    return (element_t*)malloc(sizeof(element_t));
+    activity_t *act;
+    act = (activity_t*)malloc(sizeof(activity_t));
+    array_init(act->elements, 0);
+    return act;
 }
 
-void tifx_element_free(element_t *elm)
+void tifx_activity_free(activity_t *act)
 {
-    free(elm);
+    free(act);
 }
 
-#endif // ELEMENT_H_
