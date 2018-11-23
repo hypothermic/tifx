@@ -1,7 +1,7 @@
-NAME        ?= Ti-FX
+NAME        ?= MyApplication
 COMPRESSED  ?= NO
 ICON        ?= iconc.png
-DESCRIPTION ?= "Ti-FX graphics library"
+DESCRIPTION ?= "My application using Ti-FX graphics library"
 
 #include $(CEDEV)/include/.makefile
 
