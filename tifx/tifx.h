@@ -8,8 +8,8 @@
   *                       MIT License                        *
  \************************************************************/
 
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef TIFX_H_
+#define TIFX_H_
 
 // includes
 
