@@ -1,0 +1,31 @@
+==================================================================================
+				  Always indent using tabs (length of 4 spaces).
+				Please style all code like the following samples:                 
+==================================================================================
+
+void public_method(char* buf)
+{
+	// ...
+}
+
+static void _internal_method(char* buf)
+{
+	// ...
+}
+
+void __internal_universal_method(char* buf)
+{
+	// ...
+}
+
+typedef struct _element_t
+{
+	int public_id;
+	int _internal_id;
+} element_t;
+
+struct _element
+{
+	int public_id;
+	int _internal_id;
+} element;
