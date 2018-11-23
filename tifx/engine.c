@@ -39,7 +39,7 @@ void tifx_activity_run(activity_t *act)
         _cb_key(act);
         
         dbg_sprintf(dbgerr, "RENDERING %d ELEMENTS\n", act->elements->size);
-        if (act->elements->size > 1)
+        if (act->elements->size > 0)
         {
             for (i = 0; i < act->elements->size; i++)
             {
