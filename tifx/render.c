@@ -9,21 +9,14 @@
  \************************************************************/
 
 #include "tifx.h"
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
 #include <debug.h>
+#include <graphx.h>
+#include <tice.h>
 
-activity_t *tifx_activity_new(void)
+/*! Render an element on screen
+ *  
+ */
+void __tifx_element_render(element_t *elm)
 {
-    activity_t *act;
-    act = (activity_t*)malloc(sizeof(activity_t));
-    array_init(act->elements, 1);
-    return act;
+    elm->render_cb();
 }
-
-void tifx_activity_free(activity_t *act)
-{
-    free(act);
-}
-
