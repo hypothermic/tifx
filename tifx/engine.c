@@ -22,13 +22,10 @@ static tifx_callback_key_press _cb_key = _tifx_callback_key_press_noop;
  */
 void tifx_activity_run(activity_t *act)
 {
-    dbg_sprintf(dbgerr, "ACT RUN 1\n");
+    dbg_sprintf(dbgerr, "ACT RUN %d\n", act->id);
     
     gfx_Begin();
-    gfx_SetColor(gfx_blue);
-    gfx_FillRectangle(1, 1, 2, 2);
     gfx_FillScreen(gfx_white);
-    dbg_sprintf(dbgerr, "ACT RUN 2\n");
 
     while (act->state)
     {
@@ -36,18 +33,20 @@ void tifx_activity_run(activity_t *act)
 
         kb_Scan();
 
+        dbg_sprintf(dbgerr, "ACT UPDATE");
+
         _cb_key(act);
-
-        dbg_sprintf(dbgerr, ".");
-
-        gfx_SetColor(gfx_red);
-        gfx_FillRectangle(1, 1, 2, 2);
-        gfx_SetColor(gfx_white);
+        
+        // TODO: render each UI element (act->elements)
+        //sample:
+        //gfx_SetColor(gfx_red);
+        //gfx_FillRectangle(1, 1, 2, 2);
+        //gfx_SetColor(gfx_white);
 
         gfx_SwapDraw();
     }
 
-    dbg_sprintf(dbgerr, "ACT RUN 8\n");
+    dbg_sprintf(dbgerr, "ACT EXIT %d\n", act->id);
 
     gfx_End();
 }
