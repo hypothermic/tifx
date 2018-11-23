@@ -50,6 +50,7 @@ typedef struct _activity_t
 {
     int id;
     Array* elements;
+    bool state; // is running or not
 } activity_t;
 
 activity_t *tifx_activity_new(void);
@@ -57,7 +58,7 @@ void tifx_activity_free(activity_t *act);
 
 // engine.c
 
-typedef void (*tifx_callback_key_press) (kb_key_t);
+typedef void (*tifx_callback_key_press) (activity_t*);
 void tifx_activity_run(activity_t *act);
 void tifx_activity_register_callback_keypress(tifx_callback_key_press cb);
 

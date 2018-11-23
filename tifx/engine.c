@@ -13,7 +13,7 @@
 #include <graphx.h>
 #include <tice.h>
 
-static void _tifx_callback_key_press_noop(kb_key_t key);
+static void _tifx_callback_key_press_noop(activity_t *act);
 
 static tifx_callback_key_press _cb_key = _tifx_callback_key_press_noop;
 
@@ -22,58 +22,32 @@ static tifx_callback_key_press _cb_key = _tifx_callback_key_press_noop;
  */
 void tifx_activity_run(activity_t *act)
 {
-    bool key, prevkey = false;
-    
-    dbg_sprintf(dbgout, "ACT RUN 1\n");
+    dbg_sprintf(dbgerr, "ACT RUN 1\n");
     
     gfx_Begin();
     gfx_SetColor(gfx_blue);
     gfx_FillRectangle(1, 1, 2, 2);
     gfx_FillScreen(gfx_white);
-    dbg_sprintf(dbgout, "ACT RUN 2\n");
+    dbg_sprintf(dbgerr, "ACT RUN 2\n");
 
-    while (true)
+    while (act->state)
     {
+        while (!os_GetCSC());
+
         kb_Scan();
-        key = kb_Data[1] == kb_2nd;
 
-        dbg_sprintf(dbgout, ".");
+        _cb_key(act);
 
-        if (key && !prevkey) {
-            switch (key) {
-                case kb_Left:
-                    dbg_sprintf(dbgout, "ACT RUN KEY LEFT\n");
-                    gfx_FillScreen(0xC0);
-                    break;
-                case kb_Clear:
-                    dbg_sprintf(dbgout, "ACT RUN KEY CLR\n");
-                    return;
-                default:
-                    dbg_sprintf(dbgout, "ACT RUN KEY UNHANDLED\n");
-                    break;
-            }
-        }
-        prevkey = key;
-
-        dbg_sprintf(dbgout, "ACT RUN 4\n");
+        dbg_sprintf(dbgerr, ".");
 
         gfx_SetColor(gfx_red);
         gfx_FillRectangle(1, 1, 2, 2);
         gfx_SetColor(gfx_white);
 
-        dbg_sprintf(dbgout, "ACT RUN 5\n");
-
-        // Handle custom application keypresses
-        _cb_key(key);
-
-        dbg_sprintf(dbgout, "ACT RUN 6\n");
-
         gfx_SwapDraw();
-
-        dbg_sprintf(dbgout, "ACT RUN 7\n");
     }
 
-    dbg_sprintf(dbgout, "ACT RUN 8\n");
+    dbg_sprintf(dbgerr, "ACT RUN 8\n");
 
     gfx_End();
 }
@@ -83,8 +57,10 @@ void tifx_activity_register_callback_keypress(tifx_callback_key_press cb)
     _cb_key = cb;
 }
 
-static void _tifx_callback_key_press_noop(kb_key_t key)
+static void _tifx_callback_key_press_noop(activity_t *act)
 {
-    
+    dbg_sprintf(dbgerr, "Unhandled key press! Add a listener with tifx_activity_register_callback_keypress(tifx_callback_key_press cb)\n");
+    if (kb_Data[6] & kb_Clear) {
+        act->state = false;
+    }
 }
-
