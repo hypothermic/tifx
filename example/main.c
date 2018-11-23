@@ -22,6 +22,7 @@
 void main(void)
 {
     activity_t* act;
+    element_t *label;
 
     os_ClrHome();
 
@@ -31,6 +32,12 @@ void main(void)
     while (!os_GetCSC());
 
     act = tifx_activity_new();
+
+    label = _tifx_element_new();
+    array_append(act->elements, (intptr_t) label);
+    
+    // TODO: add render callback for the label (it'll show as a default purple square now)
+    //label->render_cb = my_render_function;
 
     tifx_activity_run(act);
 
