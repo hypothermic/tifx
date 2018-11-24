@@ -26,5 +26,7 @@ label_t *tifx_element_label_new(void)
 
 static void _tifx_element_label_render_default(void)
 {
-    // TODO
+    // TODO!!! placeholder:
+    gfx_SetColor(gfx_red);
+    gfx_FillRectangle(16, 16, 32, 32);
 }
