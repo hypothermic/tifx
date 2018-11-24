@@ -55,6 +55,8 @@ typedef struct _element_t
 element_t *_tifx_element_new(void);
 void tifx_element_free(element_t *elm);
 
+void tifx_activity_add_element(activity_t *act, element_t *elm); // activity.c, moved here because of struct
+
 // element/label.c
 
 typedef struct _label_t

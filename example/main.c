@@ -34,7 +34,8 @@ void main(void)
     act = tifx_activity_new();
 
     label = tifx_element_label_new();
-    array_append(act->elements, (intptr_t) label->inherit_elm); // todo: tifx_activity_add_element(element_t *elm);
+    //array_append(act->elements, (intptr_t) label->inherit_elm); // todo: tifx_activity_add_element(element_t *elm);
+    tifx_activity_add_element(act, label->inherit_elm);
 
     tifx_activity_run(act);
 
