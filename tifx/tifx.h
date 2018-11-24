@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include <string.h>
 
-// array.h
+// array.c
 
 typedef struct
 {
@@ -54,6 +54,16 @@ typedef struct _element_t
 
 element_t *_tifx_element_new(void);
 void tifx_element_free(element_t *elm);
+
+// element/label.c
+
+typedef struct _label_t
+{
+    element_t *inherit_elm;
+    char* text;
+} label_t;
+
+label_t *tifx_element_label_new(void);
 
 // engine.c
 
