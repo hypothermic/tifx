@@ -22,6 +22,9 @@ element_t *_tifx_element_new(void)
     element_t *elm;
     elm = (element_t*)malloc(sizeof(element_t));
     elm->render_cb = _tifx_callback_element_render_noop;
+    elm->color = gfx_white;
+    elm->padding_color = -1;
+    elm->margin_color = -1;
     return elm;
 }
 

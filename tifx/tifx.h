@@ -44,12 +44,43 @@ void tifx_activity_free(activity_t *act);
 
 // element.c
 
+typedef enum _element_size
+{
+    ELEMENT_SIZE_EXPAND = 101,
+    ELEMENT_SIZE_NOMINAL = 102,
+} element_size;
+
+typedef enum _element_visibility
+{
+    ELEMENT_VISIBILITY_VISIBLE = 0,
+    ELEMENT_VISIBILITY_INVISIBLE = 1,
+} element_visibility_t;
+
 typedef void (*tifx_callback_element_render) (void);
 
 typedef struct _element_t
 {
     int eid;
     tifx_callback_element_render render_cb;
+
+    uint8_t width; // px, or 101/102 (see enum element_size)
+    uint8_t height; // ^idem
+    uint8_t color /*= gfx_white*/; // (background) color
+    element_visibility_t visibility;
+    bool focusable; // if element can be in focus
+    bool selectable; // if element can be selected (focusable must be true)
+
+    uint8_t padding_color /*= -1*/; // optional. if this is -1, use color.
+    uint8_t padding_top; // px
+    uint8_t padding_bottom; // px
+    uint8_t padding_left; // px
+    uint8_t padding_right; // px
+
+    uint8_t margin_color /*= -1*/; // optional. if this is -1, use color.
+    uint8_t margin_top; // px
+    uint8_t margin_bottom; // px
+    uint8_t margin_left; // px
+    uint8_t margin_right; // px
 } element_t;
 
 element_t *_tifx_element_new(void);
