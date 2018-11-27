@@ -13,10 +13,6 @@
 #include <graphx.h>
 #include <tice.h>
 
-static void _tifx_callback_key_press_noop(activity_t *act);
-
-static tifx_callback_key_press _cb_key = _tifx_callback_key_press_noop;
-
 /*! Present the activity on the screen.
  *  
  */
@@ -36,7 +32,7 @@ void tifx_activity_run(activity_t *act)
 
         dbg_sprintf(dbgerr, "ACT UPDATE\n");
 
-        _cb_key(act);
+        act->cb_key_press(act);
         
         dbg_sprintf(dbgerr, "RENDERING %d ELEMENTS\n", act->elements->size);
         if (act->elements->size > 0)
@@ -65,12 +61,12 @@ void tifx_activity_kill(activity_t *act)
     act->state = false;
 }
 
-void tifx_activity_register_callback_keypress(tifx_callback_key_press cb)
+void tifx_activity_register_callback_keypress(activity_t *act, tifx_callback_key_press cb)
 {
-    _cb_key = cb;
+    act->cb_key_press = cb;
 }
 
-static void _tifx_callback_key_press_noop(activity_t *act)
+void __tifx_callback_key_press_noop(activity_t *act)
 {
     dbg_sprintf(dbgerr, "Unhandled key press! Add a listener with tifx_activity_register_callback_keypress(tifx_callback_key_press cb)\n");
 

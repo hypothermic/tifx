@@ -17,6 +17,10 @@
 #include <stdint.h>
 #include <string.h>
 
+// fwd declarations
+
+typedef struct _activity_t activity_t;
+
 // array.c
 
 typedef struct
@@ -32,11 +36,17 @@ void array_free(Array *a);
 
 // activity.c
 
+typedef void (*tifx_callback_key_press) (activity_t *act);
+
+void __tifx_callback_key_press_noop(activity_t *act);
+
 typedef struct _activity_t
 {
     int id;
     Array *elements;
     bool state; // is running or not
+
+    tifx_callback_key_press cb_key_press;
 } activity_t;
 
 activity_t *tifx_activity_new(void);
@@ -100,10 +110,9 @@ label_t *tifx_element_label_new(void);
 
 // engine.c
 
-typedef void (*tifx_callback_key_press) (activity_t*);
 void tifx_activity_run(activity_t *act);
 void tifx_activity_kill(activity_t *act);
-void tifx_activity_register_callback_keypress(tifx_callback_key_press cb);
+void tifx_activity_register_callback_keypress(activity_t *act, tifx_callback_key_press cb);
 
 // render.c
 

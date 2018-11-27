@@ -18,6 +18,7 @@ activity_t *tifx_activity_new(void)
 {
     activity_t *act;
     act = (activity_t*)malloc(sizeof(activity_t));
+    act->cb_key_press = __tifx_callback_key_press_noop;
     array_init(act->elements, 1);
     return act;
 }
