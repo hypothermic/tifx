@@ -20,6 +20,7 @@
 // fwd declarations
 
 typedef struct _activity_t activity_t;
+typedef struct _element_t element_t;
 
 // array.c
 
@@ -51,6 +52,8 @@ typedef struct _activity_t
 
 activity_t *tifx_activity_new(void);
 void tifx_activity_free(activity_t *act);
+
+void tifx_activity_add_element(activity_t *act, element_t *elm);
 
 // element.c
 
@@ -95,8 +98,6 @@ typedef struct _element_t
 
 element_t *_tifx_element_new(void);
 void tifx_element_free(element_t *elm);
-
-void tifx_activity_add_element(activity_t *act, element_t *elm); // activity.c, moved here because of struct
 
 // element/label.c
 
