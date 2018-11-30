@@ -115,6 +115,18 @@ void tifx_activity_run(activity_t *act);
 void tifx_activity_kill(activity_t *act);
 void tifx_activity_register_callback_keypress(activity_t *act, tifx_callback_key_press cb);
 
+// layout/list.c
+
+/*
+typedef struct _elist_t
+{
+    element_t *inherit_elm;
+    char* text;
+} elist_t; // list_t already exists in the TI-CE default libs...
+
+elist_t *tifx_element_list_new(void);
+*/
+
 // render.c
 
 void __tifx_element_render(element_t *elm);
