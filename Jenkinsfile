@@ -27,9 +27,9 @@ pipeline {
             }
         }
     }
-    post {
+    /*post {
         always {
-            /*archiveArtifacts artifacts: 'bin/*.8xp', fingerprint: true*/
+            archiveArtifacts artifacts: 'bin/*.8xp', fingerprint: true
         }
-    }
+    }*/
 }
