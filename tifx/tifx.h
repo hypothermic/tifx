@@ -45,6 +45,7 @@ typedef struct _activity_t
 {
     int id;
     Array *elements;
+    element_t *root_elm; // container with final properties of activity
     bool state; // is running or not
 
     tifx_callback_key_press cb_key_press;
@@ -73,6 +74,7 @@ typedef void (*tifx_callback_element_render) (void);
 
 typedef struct _element_t
 {
+    intptr_t parent_elm;
     int eid;
     tifx_callback_element_render render_cb;
 
