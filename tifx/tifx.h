@@ -70,7 +70,7 @@ typedef enum _element_visibility
     ELEMENT_VISIBILITY_INVISIBLE = 1,
 } element_visibility_t;
 
-typedef void (*tifx_callback_element_render) (void);
+typedef void (*tifx_callback_element_render) (element_t*);
 
 typedef struct _element_t
 {
@@ -78,8 +78,8 @@ typedef struct _element_t
     int eid;
     tifx_callback_element_render render_cb;
 
-    uint8_t width; // px, or 101/102 (see enum element_size)
-    uint8_t height; // ^idem
+    uint16_t width; // px
+    uint8_t height; // px
     uint8_t color /*= gfx_white*/; // (background) color
     element_visibility_t visibility;
     bool focusable; // if element can be in focus
