@@ -15,7 +15,7 @@
 #include <graphx.h>
 #include <debug.h>
 
-static void _tifx_callback_element_render_noop(void);
+static void _tifx_callback_element_render_noop(element_t* elm);
 
 element_t *_tifx_element_new(void)
 {
@@ -25,6 +25,12 @@ element_t *_tifx_element_new(void)
     elm->color = gfx_white;
     elm->padding_color = -1;
     elm->margin_color = -1;
+
+    // temporary properties while render is being developed
+    elm->width = 8;
+    elm->height = 8;
+    elm->color = gfx_white;
+
     return elm;
 }
 
@@ -33,9 +39,10 @@ void tifx_element_free(element_t *elm)
     free(elm);
 }
 
-static void _tifx_callback_element_render_noop(void)
+static void _tifx_callback_element_render_noop(element_t* elm)
 {
     dbg_sprintf(dbgerr, "Unhandled element render! Replace member render_cb with your own tifx_callback_element_render\n");
-    gfx_SetColor(gfx_purple);
-    gfx_FillRectangle(1, 1, 8, 8);
+    gfx_SetColor(elm->color);
+    dbg_sprintf(dbgerr, "RENDERING w:%d h:%d\n", elm->width, elm->height);
+    gfx_FillRectangle(0, 0, elm->width, elm->height);
 }

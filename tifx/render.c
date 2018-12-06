@@ -18,5 +18,5 @@
  */
 void __tifx_element_render(element_t *elm)
 {
-    elm->render_cb();
+    elm->render_cb(elm);
 }

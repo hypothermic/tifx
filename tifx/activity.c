@@ -14,12 +14,20 @@
 #include <string.h>
 #include <debug.h>
 
+#include <graphx.h>
+
 activity_t *tifx_activity_new(void)
 {
     activity_t *act;
     act = (activity_t*)malloc(sizeof(activity_t));
     act->cb_key_press = __tifx_callback_key_press_noop;
     array_init(act->elements, 1);
+    act->root_elm = _tifx_element_new();
+    act->root_elm->parent_elm = 0;
+    act->root_elm->width = LCD_WIDTH;
+    act->root_elm->height = LCD_HEIGHT;
+    act->root_elm->color = gfx_white;
+    array_append(act->elements, ((int) act->root_elm));
     return act;
 }
 

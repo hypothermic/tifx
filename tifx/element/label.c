@@ -13,7 +13,7 @@
 #include <graphx.h>
 #include <tice.h>
 
-static void _tifx_element_label_render_default(void);
+static void _tifx_element_label_render_default(element_t* elm);
 
 label_t *tifx_element_label_new(void)
 {
@@ -24,7 +24,7 @@ label_t *tifx_element_label_new(void)
     return elm;
 }
 
-static void _tifx_element_label_render_default(void)
+static void _tifx_element_label_render_default(element_t* elm)
 {
     dbg_sprintf(dbgerr, "Note to self: \"TODO: add label renderer shapes. Don't be lazy!\"\n");
     // TODO!!! placeholder:
