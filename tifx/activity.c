@@ -38,6 +38,7 @@ void tifx_activity_free(activity_t *act)
 
 void tifx_activity_add_element(activity_t *act, element_t *elm)
 {
+    elm->parent_elm = ((intptr_t) act->root_elm);
     array_append(act->elements, (intptr_t) elm);
 }
 
